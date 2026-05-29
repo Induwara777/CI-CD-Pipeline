@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_excel("F:/CI CD Pipeline/data/datafile.xlsx")
+df = pd.read_excel("data/datafile.xlsx")
 plt.figure(figsize=[10,6])
 plt.bar(df['District'].value_counts().index,df['District'].value_counts().values)
 plt.xlabel("District")
