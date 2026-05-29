@@ -1,0 +1,37 @@
+name: CI Pipeline (Beginner MLOps)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Get code from GitHub
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Install Python
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    # 3. Install dependencies
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas matplotlib pytest
+
+    # 4. Run basic test (we will create this file soon)
+    - name: Run tests
+      run: |
+        pytest tests/
+
+    # 5. Run main script
+    - name: Run visualization
+      run: |
+        python src/main.py
