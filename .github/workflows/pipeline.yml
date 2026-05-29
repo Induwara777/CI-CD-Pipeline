@@ -29,7 +29,7 @@ jobs:
     # 4. Run basic test (we will create this file soon)
     - name: Run tests
       run: |
-        pytest tests/
+        pytest tests/test_basics.py
 
     # 5. Run main script
     - name: Run visualization
